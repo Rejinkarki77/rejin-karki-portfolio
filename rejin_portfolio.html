@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rejin Karki — IT Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white:   #ffffff;
+    --off:     #f7f7f5;
+    --ink:     #111111;
+    --mid:     #555555;
+    --light:   #999999;
+    --rule:    #e4e4e0;
+    --accent:  #2251cc;
+    --accent-light: #eef1fb;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 56px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--mid);
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    padding: 96px 48px 80px;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(40px, 7vw, 68px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-bio {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--mid);
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 4px;
+    transition: opacity .2s;
+  }
+  .hero-cta:hover { opacity: 0.88; }
+  .hero-contact {
+    display: flex; flex-wrap: wrap; gap: 24px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--mid);
+    text-decoration: none;
+  }
+  .contact-item:hover { color: var(--accent); }
+  .contact-icon { font-size: 15px; }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 72px 48px; }
+  section:nth-child(even) { background: var(--off); }
+  .section-inner { max-width: 820px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 40px;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .skill-group {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px;
+  }
+  .skill-group-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag {
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--off);
+    border: 1px solid var(--rule);
+    padding: 3px 9px;
+    border-radius: 3px;
+    color: var(--ink);
+  }
+
+  /* ── PROJECTS ── */
+  .projects-list { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .project-card {
+    background: var(--white);
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+    border-bottom: 1px solid var(--rule);
+    transition: background .15s;
+  }
+  .project-card:last-child { border-bottom: none; }
+  .project-card:hover { background: var(--accent-light); }
+  .project-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .project-desc { font-size: 14px; color: var(--mid); line-height: 1.6; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .project-tag {
+    font-size: 11px; font-weight: 600;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 3px 8px; border-radius: 3px;
+  }
+  .project-year {
+    font-size: 13px; color: var(--light); font-weight: 500;
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  .certs-list { display: flex; flex-direction: column; gap: 16px; }
+  .cert-card {
+    display: flex; align-items: center; gap: 20px;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px 24px;
+    transition: border-color .2s;
+  }
+  .cert-card:hover { border-color: var(--accent); }
+  .cert-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    width: 44px; text-align: center;
+  }
+  .cert-body {}
+  .cert-title { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .cert-meta { font-size: 13px; color: var(--mid); margin-top: 2px; }
+  .cert-badge {
+    margin-left: auto;
+    font-size: 11px; font-weight: 600;
+    background: #e6f9ef;
+    color: #1a8040;
+    padding: 3px 9px; border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-card {
+    display: flex; gap: 24px; align-items: flex-start;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 28px 32px;
+  }
+  .edu-icon { font-size: 32px; flex-shrink: 0; }
+  .edu-degree { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); margin-bottom: 4px; }
+  .edu-school { font-size: 15px; color: var(--mid); }
+  .edu-year { font-size: 13px; color: var(--light); margin-top: 4px; }
+
+  /* ── EXTRAS ── */
+  .extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .extra-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px 24px;
+  }
+  .extra-title { font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 4px; }
+  .extra-desc { font-size: 13px; color: var(--mid); line-height: 1.55; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 48px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--light);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 20px; }
+    #hero, section { padding-left: 20px; padding-right: 20px; }
+    .extras-grid { grid-template-columns: 1fr; }
+    .project-card { grid-template-columns: 1fr; }
+    .edu-card { flex-direction: column; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Rejin Karki</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <span class="hero-eyebrow">Available for opportunities · Ireland (Stamp 2)</span>
+  <h1>Rejin Karki —<br><em>IT Professional</em></h1>
+  <p class="hero-bio">
+    Dedicated IT professional pursuing a Bachelor's in Business Information Systems at Dublin Business School. Experienced in networking, databases, web development, and collaborative platforms. A communicator and leader committed to secure, user-friendly IT solutions.
+  </p>
+  <a class="hero-cta" href="mailto:rejinkarki28@gmail.com">Get in touch →</a>
+
+  <div class="hero-contact">
+    <a class="contact-item" href="mailto:rejinkarki28@gmail.com">
+      <span class="contact-icon">✉️</span> rejinkarki28@gmail.com
+    </a>
+    <a class="contact-item" href="tel:+353833431181">
+      <span class="contact-icon">📞</span> +353 83 343 1181
+    </a>
+    <span class="contact-item">
+      <span class="contact-icon">📍</span> Lucan, Co. Dublin, Ireland
+    </span>
+    <span class="contact-item">
+      <span class="contact-icon">🌐</span> Fluent in English & Nepali
+    </span>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">What I work with</p>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <p class="skill-group-title">Programming &amp; Web</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">C++</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Databases</p>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">SQL Server</span>
+          <span class="skill-tag">DBMS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Tools &amp; Platforms</p>
+        <div class="skill-tags">
+          <span class="skill-tag">SharePoint</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">Power BI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Infrastructure</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Networking</span>
+          <span class="skill-tag">Windows</span>
+          <span class="skill-tag">macOS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Soft Skills</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Leadership</span>
+          <span class="skill-tag">Communication</span>
+          <span class="skill-tag">Team Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label">Work I've built</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-list">
+
+      <div class="project-card">
+        <div>
+          <p class="project-name">Puspa Beauty Parlour Website</p>
+          <p class="project-desc">Designed and deployed a fully responsive business website from scratch. Met all project objectives and deadlines, delivering a clean, functional web presence for the client.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">Web Development</span>
+          </div>
+        </div>
+        <span class="project-year">2024</span>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <p class="project-name">MySQL Academic Database</p>
+          <p class="project-desc">Built and managed a relational MySQL database for academic use cases. Focused on query optimisation and maintaining data integrity throughout the project lifecycle.</p>
+          <div class="project-tags">
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">Database Design</span>
+            <span class="project-tag">SQL</span>
+          </div>
+        </div>
+        <span class="project-year">2024</span>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <p class="project-name">SharePoint Collaboration Platform</p>
+          <p class="project-desc">Created and managed SharePoint sites, document libraries, lists, and groups to improve team collaboration and information sharing across an organisation.</p>
+          <div class="project-tags">
+            <span class="project-tag">SharePoint</span>
+            <span class="project-tag">IT Administration</span>
+            <span class="project-tag">Collaboration</span>
+          </div>
+        </div>
+        <span class="project-year">Academic</span>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <p class="project-name">Application Deployment &amp; Testing</p>
+          <p class="project-desc">Assisted in testing and deploying applications on office and production networks, ensuring adherence to GxP and security standards. Acted as escalation point for technical issues using diagnostic tools.</p>
+          <div class="project-tags">
+            <span class="project-tag">Networking</span>
+            <span class="project-tag">GxP Compliance</span>
+            <span class="project-tag">IT Support</span>
+          </div>
+        </div>
+        <span class="project-year">Academic</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <p class="section-label">Credentials</p>
+    <h2 class="section-title">Certifications</h2>
+    <div class="certs-list">
+
+      <div class="cert-card">
+        <div class="cert-icon">🛡️</div>
+        <div class="cert-body">
+          <p class="cert-title">Cyber Security &amp; Ethical Hacking v2026: From Zero to Expert</p>
+          <p class="cert-meta">Udemy · IT Security Online Training · 22 hours · May 2026</p>
+        </div>
+        <span class="cert-badge">Verified</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">💻</div>
+        <div class="cert-body">
+          <p class="cert-title">C++ Programming</p>
+          <p class="cert-meta">IBM</p>
+        </div>
+        <span class="cert-badge">Certified</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🎨</div>
+        <div class="cert-body">
+          <p class="cert-title">Graphics Designing &amp; Video Editing</p>
+          <p class="cert-meta">Impact Education Hub, Nepal</p>
+        </div>
+        <span class="cert-badge">Certified</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🏥</div>
+        <div class="cert-body">
+          <p class="cert-title">Health &amp; Safety Certificate</p>
+          <p class="cert-meta">SPAR, Ireland</p>
+        </div>
+        <span class="cert-badge">Certified</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <p class="section-label">Academic background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <p class="edu-degree">Bachelor's in Business Information Systems</p>
+        <p class="edu-school">Dublin Business School · Dublin, Ireland</p>
+        <p class="edu-year">January 2024 – Present</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXTRAS -->
+<section>
+  <div class="section-inner">
+    <p class="section-label">Beyond the desk</p>
+    <h2 class="section-title">Activities &amp; Interests</h2>
+    <div class="extras-grid">
+      <div class="extra-card">
+        <p class="extra-title">🌏 Executive Member, NRNA Ireland</p>
+        <p class="extra-desc">Community leadership role (2025–2027) covering event coordination, organisational support, and community engagement within the Irish-Nepali network.</p>
+      </div>
+      <div class="extra-card">
+        <p class="extra-title">🏀 Basketball</p>
+        <p class="extra-desc">Played at district level in Nepal and currently represents DBS College — bringing the same team-first mindset to the court and the office.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Let's talk</p>
+    <h2 class="section-title">Get In Touch</h2>
+    <p style="color:var(--mid); margin-bottom:32px; max-width:480px;">
+      Open to graduate roles, internships, and part-time positions in IT support, web development, or cybersecurity. Based in Dublin — happy to connect.
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:16px;">
+      <a class="hero-cta" href="mailto:rejinkarki28@gmail.com">✉️ &nbsp;rejinkarki28@gmail.com</a>
+      <a class="hero-cta" style="background:var(--off); color:var(--ink); border:1px solid var(--rule);" href="tel:+353833431181">📞 &nbsp;+353 83 343 1181</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Rejin Karki · Built with care
+</footer>
+
+</body>
+</html>
