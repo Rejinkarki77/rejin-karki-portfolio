@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Rejin Karki — IT Professional</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<title>Rejin Karki — Cybersecurity & IT Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,6 +17,8 @@
     --rule:    #e4e4e0;
     --accent:  #2251cc;
     --accent-light: #eef1fb;
+    --green:   #1a8040;
+    --green-bg:#e6f9ef;
   }
 
   html { scroll-behavior: smooth; }
@@ -89,7 +91,7 @@
     font-size: 17px;
     line-height: 1.7;
     color: var(--mid);
-    max-width: 600px;
+    max-width: 620px;
     margin-bottom: 40px;
   }
   .hero-cta {
@@ -223,14 +225,20 @@
     flex-shrink: 0;
     width: 44px; text-align: center;
   }
-  .cert-body {}
+  .cert-body { flex: 1; min-width: 0; }
   .cert-title { font-size: 15px; font-weight: 600; color: var(--ink); }
   .cert-meta { font-size: 13px; color: var(--mid); margin-top: 2px; }
+  .cert-link {
+    font-size: 12px; color: var(--accent); text-decoration: none;
+    margin-top: 4px; display: inline-block; font-weight: 500;
+  }
+  .cert-link:hover { text-decoration: underline; }
   .cert-badge {
     margin-left: auto;
+    flex-shrink: 0;
     font-size: 11px; font-weight: 600;
-    background: #e6f9ef;
-    color: #1a8040;
+    background: var(--green-bg);
+    color: var(--green);
     padding: 3px 9px; border-radius: 3px;
     white-space: nowrap;
   }
@@ -275,6 +283,8 @@
     .project-card { grid-template-columns: 1fr; }
     .edu-card { flex-direction: column; }
     .nav-links { display: none; }
+    .cert-card { flex-wrap: wrap; }
+    .cert-badge { margin-left: 0; }
   }
 </style>
 </head>
@@ -294,10 +304,10 @@
 
 <!-- HERO -->
 <div id="hero">
-  <span class="hero-eyebrow">Available for opportunities · Ireland (Stamp 2)</span>
-  <h1>Rejin Karki —<br><em>IT Professional</em></h1>
+  <span class="hero-eyebrow">Available for opportunities</span>
+  <h1>Rejin Karki —<br><em>Cybersecurity & IT</em></h1>
   <p class="hero-bio">
-    Dedicated IT professional pursuing a Bachelor's in Business Information Systems at Dublin Business School. Experienced in networking, databases, web development, and collaborative platforms. A communicator and leader committed to secure, user-friendly IT solutions.
+    Cybersecurity-focused IT graduate with hands-on experience across SIEM monitoring, ethical hacking, network security, and IT support. I build practical, working security tools — from a self-hosted Wazuh SIEM lab to a Python phishing-detection classifier — and bring the same attention to detail to enterprise IT environments running Windows, Microsoft 365, and SharePoint.
   </p>
   <a class="hero-cta" href="mailto:rejinkarki28@gmail.com">Get in touch →</a>
 
@@ -324,9 +334,19 @@
     <h2 class="section-title">Technical Skills</h2>
     <div class="skills-grid">
       <div class="skill-group">
+        <p class="skill-group-title">Security &amp; Monitoring</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Wazuh SIEM</span>
+          <span class="skill-tag">Ethical Hacking</span>
+          <span class="skill-tag">Network Security</span>
+          <span class="skill-tag">Threat Detection</span>
+        </div>
+      </div>
+      <div class="skill-group">
         <p class="skill-group-title">Programming &amp; Web</p>
         <div class="skill-tags">
           <span class="skill-tag">Python</span>
+          <span class="skill-tag">scikit-learn</span>
           <span class="skill-tag">HTML</span>
           <span class="skill-tag">CSS</span>
           <span class="skill-tag">C++</span>
@@ -343,6 +363,7 @@
       <div class="skill-group">
         <p class="skill-group-title">Tools &amp; Platforms</p>
         <div class="skill-tags">
+          <span class="skill-tag">Microsoft 365</span>
           <span class="skill-tag">SharePoint</span>
           <span class="skill-tag">Excel</span>
           <span class="skill-tag">Power BI</span>
@@ -352,7 +373,8 @@
         <p class="skill-group-title">Infrastructure</p>
         <div class="skill-tags">
           <span class="skill-tag">Networking</span>
-          <span class="skill-tag">Windows</span>
+          <span class="skill-tag">Windows Admin</span>
+          <span class="skill-tag">Ubuntu / Linux</span>
           <span class="skill-tag">macOS</span>
         </div>
       </div>
@@ -374,6 +396,34 @@
     <p class="section-label">Work I've built</p>
     <h2 class="section-title">Projects</h2>
     <div class="projects-list">
+
+      <div class="project-card">
+        <div>
+          <p class="project-name">Wazuh SIEM Home Lab</p>
+          <p class="project-desc">Deployed and configured a Wazuh SIEM stack on Ubuntu to monitor endpoints, aggregate logs, and surface security alerts in real time — covering agent enrollment, rule tuning, and dashboard configuration.</p>
+          <div class="project-tags">
+            <span class="project-tag">Wazuh</span>
+            <span class="project-tag">SIEM</span>
+            <span class="project-tag">Ubuntu</span>
+            <span class="project-tag">Log Monitoring</span>
+          </div>
+        </div>
+        <span class="project-year">Ongoing</span>
+      </div>
+
+      <div class="project-card">
+        <div>
+          <p class="project-name">Phishing Detection Classifier</p>
+          <p class="project-desc">Built a machine-learning classifier in Python with scikit-learn to detect phishing URLs/emails, covering feature engineering, model training, and evaluation against labelled datasets.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">scikit-learn</span>
+            <span class="project-tag">Machine Learning</span>
+            <span class="project-tag">Phishing Detection</span>
+          </div>
+        </div>
+        <span class="project-year">2026</span>
+      </div>
 
       <div class="project-card">
         <div>
@@ -443,9 +493,29 @@
         <div class="cert-icon">🛡️</div>
         <div class="cert-body">
           <p class="cert-title">Cyber Security &amp; Ethical Hacking v2026: From Zero to Expert</p>
-          <p class="cert-meta">Udemy · IT Security Online Training · 22 hours · May 2026</p>
+          <p class="cert-meta">Udemy · IT Security Online Training · 22 hours · May 31, 2026</p>
+          <a class="cert-link" href="https://ude.my/UC-30f0172a-863b-44e9-ba84-fa23fdfc7bb0" target="_blank" rel="noopener">View credential →</a>
         </div>
         <span class="cert-badge">Verified</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">📡</div>
+        <div class="cert-body">
+          <p class="cert-title">Learn Network Hacking From Scratch (WiFi &amp; Wired)</p>
+          <p class="cert-meta">Udemy · Zaid Sabih, z Security · 8 hours · June 25, 2026</p>
+          <a class="cert-link" href="https://ude.my/UC-d5c7d493-3deb-4f1a-a49e-52a2e074be4f" target="_blank" rel="noopener">View credential →</a>
+        </div>
+        <span class="cert-badge">Verified</span>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-body">
+          <p class="cert-title">Level Up Cybersecurity with Generative AI</p>
+          <p class="cert-meta">IBM SkillsBuild</p>
+        </div>
+        <span class="cert-badge">Completed</span>
       </div>
 
       <div class="cert-card">
@@ -489,7 +559,7 @@
       <div>
         <p class="edu-degree">Bachelor's in Business Information Systems</p>
         <p class="edu-school">Dublin Business School · Dublin, Ireland</p>
-        <p class="edu-year">January 2024 – Present</p>
+        <p class="edu-year">January 2024 – 2026</p>
       </div>
     </div>
   </div>
@@ -519,7 +589,7 @@
     <p class="section-label">Let's talk</p>
     <h2 class="section-title">Get In Touch</h2>
     <p style="color:var(--mid); margin-bottom:32px; max-width:480px;">
-      Open to graduate roles, internships, and part-time positions in IT support, web development, or cybersecurity. Based in Dublin — happy to connect.
+      Open to graduate roles, internships, and part-time positions in cybersecurity, IT support, or web development. Based in Dublin — happy to connect.
     </p>
     <div style="display:flex; flex-wrap:wrap; gap:16px;">
       <a class="hero-cta" href="mailto:rejinkarki28@gmail.com">✉️ &nbsp;rejinkarki28@gmail.com</a>
