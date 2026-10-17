@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="assets/site.css" />
 <script src="assets/theme.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rejin Karki — Cybersecurity & IT Graduate, Dublin</title>
+<title>Rejin Karki — Business Applications & IT Analyst, Dublin</title>
 <meta name="description" content="Rejin Karki is a cybersecurity and IT graduate in Dublin with hands-on experience in SIEM monitoring, ethical hacking, network security and IT support. Open to graduate roles and internships." />
 <meta name="theme-color" content="#0B6670" />
 <link rel="canonical" href="https://rejinkarki77.github.io/rejin-karki-portfolio/" />
@@ -54,6 +54,7 @@
       <a href="#certifications">Certifications</a>
       <a href="#background">Background</a>
       <a href="#contact">Contact</a>
+      <a href="slides.html">CV slides</a>
     </nav>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -70,9 +71,9 @@
       <div>
         <p class="status rise d0">Open to graduate roles and internships</p>
         <h1 id="heroName" class="rise d1" data-tilt="7"><span>Rejin</span><span class="surname">Karki</span></h1>
-        <p class="hero-role rise d2">Cybersecurity and IT graduate who builds working security tools.</p>
+        <p class="hero-role rise d2">Business applications and IT graduate who builds, tests and supports working tools.</p>
         <p class="hero-bio rise d3">
-          I have hands-on experience with SIEM monitoring, ethical hacking, network security and IT support. My projects include a self-hosted Wazuh lab and a phishing-detection classifier in Python, and I work comfortably in Windows, Microsoft 365 and SharePoint environments.
+          I work directly with non-technical people to gather requirements, troubleshoot problems and document fixes clearly. My projects range from Python invoice automation and SQL reporting to a Wazuh SIEM lab and a phishing-detection classifier, with SharePoint and Microsoft 365 administration alongside.
         </p>
         <div class="hero-actions rise d4">
           <a class="btn btn-primary" href="mailto:rejinkarki28@gmail.com">
@@ -80,6 +81,7 @@
             Email me
           </a>
           <a class="btn btn-ghost" href="#projects">See my projects</a>
+          <a class="btn btn-ghost" href="slides.html">View CV as slides</a>
         </div>
         <dl class="facts rise d5">
           <div><dt>Based in</dt><dd>Lucan, Dublin</dd></div>
@@ -126,67 +128,84 @@
     <div class="wrap section-grid">
       <div class="section-head">
         <h2 id="projectsTitle">Projects</h2>
-        <p>Security labs and tools first, then web, database and IT work.</p>
+        <p>Technical projects first, then academic and freelance work.</p>
       </div>
       <div>
         <div class="featured">
           <article class="project tilt" data-tilt="5">
-            <div class="project-meta"><span class="badge">Ongoing</span><span>Security lab</span></div>
-            <h3>Wazuh SIEM home lab</h3>
-            <p>A self-hosted Wazuh SIEM on Ubuntu that monitors endpoints, collects their logs and raises security alerts in real time.</p>
+            <div class="project-meta"><span class="badge">Sep 2026</span><span>Automation</span></div>
+            <h3>Invoice Automation Suite</h3>
+            <p>A pipeline that extracts invoice data from PDFs, flags duplicate and high-value invoices, and feeds a dashboard.</p>
             <ul class="project-covers">
-              <li>Agent enrollment on endpoints</li>
-              <li>Rule tuning to cut noise</li>
-              <li>Dashboard configuration</li>
+              <li>SQLite schema and pytest suite</li>
+              <li>All 20 sample invoices parsed and validated</li>
             </ul>
-            <ul class="stack" aria-label="Technologies"><li>Wazuh</li><li>SIEM</li><li>Ubuntu</li><li>Log monitoring</li></ul>
+            <ul class="stack" aria-label="Technologies"><li>Python</li><li>pdfplumber</li><li>SQLite</li><li>pytest</li></ul>
           </article>
-
           <article class="project tilt" data-tilt="5">
-            <div class="project-meta"><span class="badge">2026</span><span>Machine learning</span></div>
-            <h3>Phishing detection classifier</h3>
-            <p>A Python classifier built with scikit-learn that flags phishing URLs and emails, trained and tested on labelled datasets.</p>
+            <div class="project-meta"><span class="badge">Sep 2026</span><span>Security tool</span></div>
+            <h3>Security Log Analyzer</h3>
+            <p>Parses OpenSSH authentication logs and flags brute-force attempts, credential stuffing and watchlisted IP addresses.</p>
             <ul class="project-covers">
-              <li>Feature engineering</li>
-              <li>Model training</li>
-              <li>Evaluation on labelled data</li>
+              <li>Sliding-window thresholds, explainable rules</li>
+              <li>10 automated tests for edge cases</li>
             </ul>
-            <ul class="stack" aria-label="Technologies"><li>Python</li><li>scikit-learn</li><li>Machine learning</li></ul>
+            <ul class="stack" aria-label="Technologies"><li>Python</li><li>pytest</li></ul>
+          </article>
+          <article class="project tilt" data-tilt="5">
+            <div class="project-meta"><span class="badge">Mar to May 2026</span><span>Machine learning</span></div>
+            <h3>Phishing and log anomaly detection</h3>
+            <p>Trained models to classify phishing emails and flag unusual log activity, using sender patterns, header anomalies and request frequency.</p>
+            <ul class="project-covers">
+              <li>Precision and recall checked against manual review</li>
+              <li>Notes on where AI should support an analyst</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>Python</li><li>scikit-learn</li></ul>
+          </article>
+          <article class="project tilt" data-tilt="5">
+            <div class="project-meta"><span class="badge">Feb to Apr 2026</span><span>Security lab</span></div>
+            <h3>Home-lab SIEM and log monitoring</h3>
+            <p>Wazuh deployed across two networked virtual machines to centralise and monitor system events.</p>
+            <ul class="project-covers">
+              <li>Simulated attacks, each alert checked against source IPs and timestamps</li>
+              <li>Reusable incident write-up template</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>Wazuh</li><li>Virtual machines</li></ul>
           </article>
         </div>
 
-        <h3 class="more-title">More work</h3>
+        <h3 class="more-title">Academic and freelance work</h3>
         <ul class="more-list">
           <li>
-            <span class="more-year">2024</span>
+            <span class="more-year">Sep to Nov 2024</span>
             <div>
-              <h4>Puspa Beauty Parlour website</h4>
-              <p>Designed and deployed a fully responsive business website from scratch, delivered on time and to the client's brief.</p>
-              <ul class="stack" aria-label="Technologies"><li>HTML</li><li>CSS</li><li>MySQL</li></ul>
+              <h4>Business application testing, deployment and support</h4>
+              <p>Tested and deployed applications across office and production environments to GxP and information security guidelines. First point of contact for stakeholders, with every issue and fix logged for a complete audit trail.</p>
+              <ul class="stack" aria-label="Technologies"><li>GxP</li><li>IT support</li><li>Audit trail</li></ul>
             </div>
           </li>
           <li>
-            <span class="more-year">2024</span>
-            <div>
-              <h4>MySQL academic database</h4>
-              <p>Built and managed a relational database for academic use, focused on query optimisation and data integrity.</p>
-              <ul class="stack" aria-label="Technologies"><li>MySQL</li><li>SQL</li><li>Database design</li></ul>
-            </div>
-          </li>
-          <li>
-            <span class="more-year">Academic</span>
+            <span class="more-year">Jun to Jul 2024</span>
             <div>
               <h4>SharePoint collaboration platform</h4>
-              <p>Created and managed sites, document libraries, lists and groups to improve team collaboration and information sharing.</p>
-              <ul class="stack" aria-label="Technologies"><li>SharePoint</li><li>IT administration</li></ul>
+              <p>Built sites, document libraries, lists and permissions for each user group from stakeholder requirements, and used change control to restructure a live site without interrupting access.</p>
+              <ul class="stack" aria-label="Technologies"><li>SharePoint</li><li>Permissions</li><li>Change control</li></ul>
             </div>
           </li>
           <li>
-            <span class="more-year">Academic</span>
+            <span class="more-year">Apr to May 2024</span>
             <div>
-              <h4>Application deployment and testing</h4>
-              <p>Helped test and deploy applications on office and production networks to GxP and security standards, and acted as an escalation point for technical issues.</p>
-              <ul class="stack" aria-label="Technologies"><li>Networking</li><li>GxP compliance</li><li>IT support</li></ul>
+              <h4>Relational database design</h4>
+              <p>Designed and managed a MySQL database end to end with integrity checks, and used indexing to speed up filtering across large datasets.</p>
+              <ul class="stack" aria-label="Technologies"><li>MySQL</li><li>SQL</li><li>Indexing</li></ul>
+            </div>
+          </li>
+          <li>
+            <span class="more-year">Jan to Mar 2024</span>
+            <div>
+              <h4>Freelance web developer, Puspa Beauty Parlour</h4>
+              <p>Gathered requirements from the client, then designed, built and deployed the business website end to end. Delivered on time and in scope, with client sign-off.</p>
+              <ul class="stack" aria-label="Technologies"><li>HTML</li><li>CSS</li><li>MySQL</li></ul>
             </div>
           </li>
         </ul>
@@ -202,12 +221,11 @@
         <p>The tools and areas I use most.</p>
       </div>
       <dl>
-        <div class="skill-row"><dt>Security and monitoring</dt><dd><span>Wazuh SIEM</span><span>Ethical hacking</span><span>Network security</span><span>Threat detection</span></dd></div>
-        <div class="skill-row"><dt>Programming and web</dt><dd><span>Python</span><span>scikit-learn</span><span>HTML</span><span>CSS</span><span>C++</span></dd></div>
-        <div class="skill-row"><dt>Databases</dt><dd><span>MySQL</span><span>SQL Server</span><span>DBMS</span></dd></div>
-        <div class="skill-row"><dt>Tools and platforms</dt><dd><span>Microsoft 365</span><span>SharePoint</span><span>Excel</span><span>Power BI</span></dd></div>
-        <div class="skill-row"><dt>Infrastructure</dt><dd><span>Networking</span><span>Windows administration</span><span>Ubuntu and Linux</span><span>macOS</span></dd></div>
-        <div class="skill-row"><dt>Working with people</dt><dd><span>Leadership</span><span>Communication</span><span>Team collaboration</span></dd></div>
+        <div class="skill-row"><dt>Business applications</dt><dd><span>Requirements gathering</span><span>Testing and deployment</span><span>Troubleshooting</span><span>Process documentation</span><span>ITIL</span></dd></div>
+        <div class="skill-row"><dt>Microsoft 365 and cloud</dt><dd><span>SharePoint Online</span><span>Teams</span><span>OneDrive</span><span>Exchange Online</span><span>Entra ID</span><span>Intune</span><span>Azure fundamentals</span></dd></div>
+        <div class="skill-row"><dt>Programming and data</dt><dd><span>Python</span><span>pdfplumber</span><span>scikit-learn</span><span>pytest</span><span>SQL (MySQL, SQL Server, SQLite)</span><span>Power BI</span><span>Excel</span><span>PowerShell</span><span>C++</span></dd></div>
+        <div class="skill-row"><dt>Security and networking</dt><dd><span>Wazuh SIEM alert triage</span><span>Log analysis</span><span>Phishing detection</span><span>TCP/IP</span><span>DNS</span><span>DHCP</span><span>Firewall and VPN basics</span><span>Windows and macOS support</span></dd></div>
+        <div class="skill-row"><dt>Ways of working</dt><dd><span>Clear communication with non-technical users</span><span>Independent work</span><span>Audit-ready documentation</span><span>GxP and information security awareness</span></dd></div>
       </dl>
     </div>
   </section>
@@ -275,7 +293,7 @@
           <div class="card tilt" data-tilt="4">
             <h3>Bachelor's in Business Information Systems</h3>
             <p class="sub">Dublin Business School, Dublin, Ireland</p>
-            <p class="desc">January 2024 to 2026</p>
+            <p class="desc">January 2024 to May 2026</p>
           </div>
         </div>
         <div class="bg-stack">
