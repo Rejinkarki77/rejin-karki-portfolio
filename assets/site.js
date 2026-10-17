@@ -227,4 +227,37 @@
     vImg.removeAttribute('src');
     if (lastTrigger) lastTrigger.focus();
   });
+
+  /* ───────── 3D tilt (mouse only, off for reduced motion) ───────── */
+  var canTilt = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+                !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (canTilt) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tilt]'), function (el) {
+      var max = parseFloat(el.getAttribute('data-tilt')) || 5;
+      var zone = el.closest('[data-tilt-zone]') || el;
+      var frame = null;
+      function move(e) {
+        if (frame) cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(function () {
+          var r = zone.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width;
+          var py = (e.clientY - r.top) / r.height;
+          el.style.setProperty('--ry', ((px - 0.5) * 2 * max).toFixed(2) + 'deg');
+          el.style.setProperty('--rx', ((0.5 - py) * 2 * max).toFixed(2) + 'deg');
+          var er = el.getBoundingClientRect();
+          el.style.setProperty('--gx', (e.clientX - er.left) + 'px');
+          el.style.setProperty('--gy', (e.clientY - er.top) + 'px');
+          el.classList.add('is-tilting');
+        });
+      }
+      function leave() {
+        if (frame) cancelAnimationFrame(frame);
+        el.style.setProperty('--rx', '0deg');
+        el.style.setProperty('--ry', '0deg');
+        el.classList.remove('is-tilting');
+      }
+      zone.addEventListener('pointermove', move);
+      zone.addEventListener('pointerleave', leave);
+    });
+  }
 })();

@@ -188,7 +188,7 @@
   .facts dd { font-weight: 600; }
 
   /* One orchestrated entrance, on load only */
-  .rise { animation: rise .7s cubic-bezier(.2,.7,.2,1) both;  }
+  .rise { animation: rise .7s cubic-bezier(.2,.7,.2,1) backwards;  }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
   /* ───────── Link checker (hero signature) ───────── */
@@ -411,3 +411,114 @@
   .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
   .d0{animation-delay:0ms}.d1{animation-delay:90ms}.d2{animation-delay:180ms}.d3{animation-delay:270ms}.d4{animation-delay:360ms}.d5{animation-delay:450ms}
+
+/* ───────── Refinements: spacing rhythm ───────── */
+:root { --teal-deep: #06434A; --depth: rgba(16,37,45,.16); }
+:root[data-theme="dark"] { --teal-deep: #2A858E; --depth: rgba(0,0,0,.5); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --teal-deep: #2A858E; --depth: rgba(0,0,0,.5); } }
+
+.hero { padding: clamp(56px, 9vw, 120px) 0 clamp(72px, 10vw, 144px); }
+.hero-grid { gap: clamp(40px, 6vw, 104px); }
+.status { margin-bottom: 36px; }
+.hero-role { margin-top: 40px; }
+.hero-bio { margin-top: 20px; line-height: 1.7; }
+.hero-actions { margin-top: 44px; gap: 16px; }
+.facts { margin-top: 64px; padding-top: 32px; gap: 20px 48px; }
+
+.section { padding: clamp(72px, 10vw, 136px) 0; }
+.section-grid { gap: clamp(32px, 6vw, 104px); }
+.section-head p { margin-top: 14px; }
+.featured { gap: 28px; }
+.project { padding: 36px; }
+.project h3 { margin-top: 22px; }
+.project p { margin-top: 14px; }
+.project-covers { margin-top: 24px; gap: 10px; }
+.stack { padding-top: 28px; gap: 8px; }
+.more-title { margin-top: 72px; margin-bottom: 8px; }
+.more-list > li { padding: 30px 0; gap: 8px 32px; }
+.skill-row { padding: 26px 0; }
+.skill-row dd { gap: 10px; }
+.cert-list > li { padding: 28px 0; }
+.cert-subhead { margin-top: 64px; margin-bottom: 8px; }
+.bg-cols { gap: 28px; }
+.card { padding: 32px; }
+.bg-heading { margin-bottom: 20px; }
+.bg-stack > * + * { margin-top: 28px; }
+.contact-actions { margin-top: 44px; gap: 16px; }
+.contact-list { margin-top: 48px; gap: 16px; }
+.site-footer { padding: 36px 0 56px; }
+
+.checker { padding: clamp(24px, 3.4vw, 40px); }
+.checker-form { margin-top: 28px; }
+.samples { margin-top: 16px; }
+.verdict { margin-top: 28px; padding: 18px 20px; }
+.checks { margin-top: 16px; }
+.checks li { padding: 14px 0; }
+.checker-note { margin-top: 20px; }
+
+/* ───────── Refinements: 3D depth ───────── */
+.tilt {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .3s ease-out, box-shadow .3s ease-out;
+  box-shadow: 0 1px 2px var(--depth), 0 10px 22px -6px var(--depth), 0 34px 60px -24px var(--depth);
+}
+.tilt.is-tilting {
+  transition: transform .08s linear, box-shadow .3s ease-out;
+  box-shadow: 0 2px 4px var(--depth), 0 18px 34px -8px var(--depth), 0 50px 80px -26px var(--depth);
+}
+.tilt::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,.22), transparent 60%);
+  opacity: 0; transition: opacity .3s;
+}
+:root[data-theme="dark"] .tilt::after { background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,.07), transparent 60%); }
+.tilt.is-tilting::after { opacity: 1; }
+.checker > h2, .checker .verdict, .checker .checker-field,
+.project > h3, .project > .project-meta, .card > h3 { transform: translateZ(26px); }
+
+h1[data-tilt] {
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-origin: 20% 50%;
+  transition: transform .3s ease-out;
+}
+.hero h1 span:first-child { text-shadow:
+  1px 1px 0 color-mix(in srgb, var(--ink) 30%, var(--bg)), 2px 2px 0 color-mix(in srgb, var(--ink) 30%, var(--bg)),
+  3px 3px 0 color-mix(in srgb, var(--ink) 30%, var(--bg)), 4px 4px 0 color-mix(in srgb, var(--ink) 30%, var(--bg)),
+  5px 5px 0 color-mix(in srgb, var(--ink) 30%, var(--bg)), 6px 6px 0 color-mix(in srgb, var(--ink) 30%, var(--bg)),
+  10px 16px 26px var(--depth); }
+.hero h1 .surname { transform: translateZ(40px); text-shadow:
+  1px 1px 0 var(--teal-deep), 2px 2px 0 var(--teal-deep), 3px 3px 0 var(--teal-deep),
+  4px 4px 0 var(--teal-deep), 5px 5px 0 var(--teal-deep), 6px 6px 0 var(--teal-deep),
+  10px 16px 26px var(--depth); }
+
+/* Tactile buttons */
+.btn-primary { box-shadow: 0 4px 0 var(--teal-deep), 0 12px 20px -6px var(--depth); transition: transform .12s, box-shadow .12s, filter .15s; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--teal-deep), 0 18px 26px -8px var(--depth); filter: none; }
+.btn-primary:active { transform: translateY(4px); box-shadow: 0 0 0 var(--teal-deep), 0 4px 8px -4px var(--depth); }
+.btn-ghost { box-shadow: 0 3px 0 var(--rule); transition: transform .12s, box-shadow .12s, border-color .15s, color .15s; }
+.btn-ghost:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--rule); }
+.btn-ghost:active { transform: translateY(3px); box-shadow: 0 0 0 var(--rule); }
+.checker-field .btn { box-shadow: 0 3px 0 var(--teal-deep); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt, h1[data-tilt] { transform: none !important; transition: none; }
+  .checker > h2, .checker .verdict, .checker .checker-field, .project > h3, .project > .project-meta, .card > h3, .hero h1 .surname { transform: none; }
+  .btn-primary, .btn-ghost { transition: none; }
+}
+@media print {
+  .tilt, h1[data-tilt] { transform: none !important; box-shadow: none; }
+  .tilt::after { display: none; }
+  .hero h1 span, .hero h1 .surname { text-shadow: none; transform: none; }
+}
+
+/* Cleaner extrusion: shallower, crisper */
+.hero h1 span:first-child { text-shadow:
+  1px 1px 0 color-mix(in srgb, var(--ink) 22%, var(--bg)), 2px 2px 0 color-mix(in srgb, var(--ink) 22%, var(--bg)),
+  3px 3px 0 color-mix(in srgb, var(--ink) 22%, var(--bg)), 4px 4px 0 color-mix(in srgb, var(--ink) 22%, var(--bg)),
+  6px 12px 18px var(--depth); }
+.hero h1 .surname { text-shadow:
+  1px 1px 0 var(--teal-deep), 2px 2px 0 var(--teal-deep), 3px 3px 0 var(--teal-deep), 4px 4px 0 var(--teal-deep),
+  6px 12px 18px var(--depth); }
