@@ -181,7 +181,7 @@
   .hero-bio { margin-top: 16px; color: var(--muted); max-width: 34em; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
   .facts {
-    display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 12px 40px;
+    display: grid; grid-template-columns: repeat(2, auto); justify-content: start; gap: 12px 40px;
     margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--rule);
   }
   .facts dt { font-size: .875rem; color: var(--muted); }
