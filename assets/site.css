@@ -522,3 +522,16 @@ h1[data-tilt] {
 .hero h1 .surname { text-shadow:
   1px 1px 0 var(--teal-deep), 2px 2px 0 var(--teal-deep), 3px 3px 0 var(--teal-deep), 4px 4px 0 var(--teal-deep),
   6px 12px 18px var(--depth); }
+
+/* Audit fixes: comfortable tap targets and a nav shortcut */
+.sample-btn, .cert-btn, .text-link { min-height: 44px; display: inline-flex; align-items: center; }
+.text-link { padding-block: 2px; }
+.contact-list a.text-link { min-height: 44px; }
+.footer-row a { display: inline-flex; align-items: center; min-height: 44px; }
+.brand { min-height: 44px; }
+.nav-cta { min-height: 40px; padding: 0 18px; font-size: .9375rem; }
+@media (max-width: 720px) { .nav-cta { display: none; } }
+.lost { padding-block: 12vh; }
+.lost h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 700; letter-spacing: -.04em; line-height: 1; }
+.lost-text { margin-top: 16px; color: var(--muted); }
+.lost-cta { margin-top: 32px; }

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rejinkarki77.github.io/rejin-karki-portfolio/sitemap.xml
